@@ -1,135 +1,217 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>口味偏好設定</title>
     <style>
         body {
-            font-family: sans-serif; /* 使用無襯線字體 */
-            background: linear-gradient(to bottom right, #fff7ed, #fee2e2); /* 模擬 bg-gradient-to-br from-orange-50 to-red-50 */
-            color: #1f2937; /* 模擬 text-gray-900 */
+            height: 100dvh;
+            font-family: sans-serif;
+            /* 使用無襯線字體 */
+            background: linear-gradient(to bottom right, #fff7ed, #fee2e2);
+            /* 模擬 bg-gradient-to-br from-orange-50 to-red-50 */
+            color: #1f2937;
+            /* 模擬 text-gray-900 */
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
+
         .container {
-            max-width: 960px; /* 模擬 max-w-4xl */
-            margin: 0 auto; /* 模擬 mx-auto */
-            padding: 32px 16px; /* 模擬 px-4 py-8 */
+            max-width: 960px;
+            /* 模擬 max-w-4xl */
+            margin: 0 auto;
+            /* 模擬 mx-auto */
+            padding: 32px 16px;
+            /* 模擬 px-4 py-8 */
         }
+
         header {
-            text-align: center; /* 模擬 text-center */
-            margin-bottom: 48px; /* 模擬 mb-12 */
+            text-align: center;
+            /* 模擬 text-center */
+            margin-bottom: 48px;
+            /* 模擬 mb-12 */
         }
+
         header h1 {
-            font-size: 36px; /* 模擬 text-4xl */
-            font-weight: bold; /* 模擬 font-bold */
-            margin-bottom: 16px; /* 模擬 mb-4 */
-            color: #1f2937; /* 模擬 text-gray-900 */
+            font-size: 36px;
+            /* 模擬 text-4xl */
+            font-weight: bold;
+            /* 模擬 font-bold */
+            margin-bottom: 16px;
+            /* 模擬 mb-4 */
+            color: #1f2937;
+            /* 模擬 text-gray-900 */
         }
+
         header p {
-            font-size: 20px; /* 模擬 text-xl */
-            color: #4b5563; /* 模擬 text-gray-600 */
-            max-width: 672px; /* 模擬 max-w-2xl */
+            font-size: 20px;
+            /* 模擬 text-xl */
+            color: #4b5563;
+            /* 模擬 text-gray-600 */
+            max-width: 672px;
+            /* 模擬 max-w-2xl */
             margin: 0 auto;
         }
+
         .card {
-            background-color: rgba(255, 255, 255, 0.9); /* 模擬 bg-white/90 */
-            backdrop-filter: blur(8px); /* 模擬 backdrop-blur */
-            border-radius: 8px; /* 模擬 rounded */
-            padding: 24px; /* 模擬 p-6 */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 模擬 shadow */
-            max-width: 600px; /* 調整卡片最大寬度以容納表單 */
-            margin: 0 auto; /* 模擬 mx-auto */
+            background-color: rgba(255, 255, 255, 0.9);
+            /* 模擬 bg-white/90 */
+            backdrop-filter: blur(8px);
+            /* 模擬 backdrop-blur */
+            border-radius: 8px;
+            /* 模擬 rounded */
+            padding: 24px;
+            /* 模擬 p-6 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* 模擬 shadow */
+            max-width: 600px;
+            /* 調整卡片最大寬度以容納表單 */
+            margin: 0 auto;
+            /* 模擬 mx-auto */
         }
+
         .card h1 {
-             font-size: 24px; /* 模擬 text-2xl */
-             font-weight: bold; /* 模擬 font-bold */
-             margin-top: 0;
-             margin-bottom: 16px; /* 模擬 mb-4 */
-             color: #1f2937; /* 模擬 text-gray-900 */
-             text-align: center; /* 卡片內的標題置中 */
+            font-size: 24px;
+            /* 模擬 text-2xl */
+            font-weight: bold;
+            /* 模擬 font-bold */
+            margin-top: 0;
+            margin-bottom: 16px;
+            /* 模擬 mb-4 */
+            color: #1f2937;
+            /* 模擬 text-gray-900 */
+            text-align: center;
+            /* 卡片內的標題置中 */
         }
+
         .form-group {
-            margin-bottom: 16px; /* 增加表單組間距 */
+            margin-bottom: 16px;
+            /* 增加表單組間距 */
         }
+
         .form-group label {
-            display: block; /* 讓 label 佔滿一行 */
-            margin-bottom: 8px; /* label 和 input 間距 */
-            font-weight: 600; /* 模擬 font-semibold */
-            color: #1f2937; /* 模擬 text-gray-900 */
+            display: block;
+            /* 讓 label 佔滿一行 */
+            font-weight: 600;
+            /* 模擬 font-semibold */
+            color: #1f2937;
+            /* 模擬 text-gray-900 */
         }
+
         .form-group input[type="range"] {
             /* Remove or modify range input styles */
-            width: 100%; /* 讓 range input 佔滿寬度 */
+            width: 100%;
+            /* 讓 range input 佔滿寬度 */
         }
+
         .button {
-            display: block; /* 讓按鈕佔滿一行 */
-            width: 100%; /* 讓按鈕佔滿寬度 */
-            padding: 12px 24px; /* 模擬 Button padding */
-            background-color: #f97316; /* 模擬 bg-orange-600 */
+            line-height: normal;
+            display: block;
+            /* 讓按鈕佔滿一行 */
+            width: 100%;
+            /* 讓按鈕佔滿寬度 */
+            padding: 12px 24px;
+            /* 模擬 Button padding */
+            background-color: #f97316;
+            /* 模擬 bg-orange-600 */
             color: white;
             text-decoration: none;
-            border: none; /* 移除按鈕預設邊框 */
-            border-radius: 6px; /* 模擬 rounded */
-            font-weight: 600; /* 模擬 font-semibold */
-            cursor: pointer; /* 顯示手型游標 */
+            border: none;
+            /* 移除按鈕預設邊框 */
+            border-radius: 6px;
+            /* 模擬 rounded */
+            font-weight: 600;
+            /* 模擬 font-semibold */
+            cursor: pointer;
+            /* 顯示手型游標 */
             transition: background-color 0.2s ease-in-out;
-            font-size: 16px; /* 模擬 Button 字體大小 */
+            font-size: 16px;
+            /* 模擬 Button 字體大小 */
         }
+
         .button:hover {
-            background-color: #ea580c; /* 模擬 hover:bg-orange-700 */
+            background-color: #ea580c;
+            /* 模擬 hover:bg-orange-700 */
         }
+
         .button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
         }
+
         .form-page {
-            display: none; /* Hide all pages by default */
-            display: flex; /* Use flexbox for page content */
-            flex-direction: column; /* Stack content vertically */
-            justify-content: space-between; /* Push buttons to the bottom */
-            height: 100%; /* Ensure page takes full height to push buttons down */
+            display: none;
+            /* Hide all pages by default */
+            display: flex;
+            /* Use flexbox for page content */
+            flex-direction: column;
+            /* Stack content vertically */
+            justify-content: space-between;
+            /* Push buttons to the bottom */
+            height: 100%;
+            /* Ensure page takes full height to push buttons down */
         }
+
         .form-page:first-child {
-            display: flex; /* Show the first page */
+            display: flex;
+            /* Show the first page */
         }
+
         .button-container {
             display: flex;
-            justify-content: space-between; /* Align buttons left and right */
-            margin-top: 20px; /* Add some space above buttons */
+            justify-content: space-between;
+            /* Align buttons left and right */
+            margin-top: 20px;
+            /* Add some space above buttons */
         }
+
         .button-container .button {
-            width: auto; /* Allow buttons to size based on content */
-            display: inline-block; /* Display buttons inline */
+            width: auto;
+            /* Allow buttons to size based on content */
+            display: inline-block;
+            /* Display buttons inline */
         }
+
         /* New styles for allergen form group */
         .allergen-form-group {
             display: flex;
             flex-direction: column;
-            align-items: center; /* Center items horizontally */
-            margin-bottom: 16px; /* Keep existing margin */
+            align-items: center;
+            /* Center items horizontally */
+            margin-bottom: 16px;
+            /* Keep existing margin */
         }
 
         .allergen-form-group label {
-            margin-bottom: 8px; /* Keep existing margin */
-            font-size: 20px; /* Increase font size */
+            margin-bottom: 8px;
+            /* Keep existing margin */
+            font-size: 20px;
+            /* Increase font size */
         }
 
         .allergen-form-group select {
-            padding: 10px; /* Increase padding */
-            font-size: 18px; /* Increase font size */
-            width: 80%; /* Set a specific width */
-            box-sizing: border-box; /* Include padding in the element's total width */
+            padding: 10px;
+            /* Increase padding */
+            font-size: 18px;
+            /* Increase font size */
+            width: 80%;
+            /* Set a specific width */
+            box-sizing: border-box;
+            /* Include padding in the element's total width */
         }
 
         /* New styles for radio button group */
         .radio-group {
             display: flex;
-            flex-direction: column; /* Arrange radio buttons vertically */
-            gap: 12px; /* Space between radio button options, increased from 8px */
-            margin-top: 12px; /* Space between label and options, increased from 8px */
+            flex-direction: column;
+            /* Arrange radio buttons vertically */
+            gap: 12px;
+            /* Space between radio button options, increased from 8px */
+            margin-top: 12px;
+            /* Space between label and options, increased from 8px */
         }
 
         .radio-group div {
@@ -138,19 +220,26 @@
         }
 
         .radio-group input[type="radio"] {
-            margin-right: 10px; /* Space between radio button and label, increased from 8px */
-            width: 20px; /* Increase radio button size */
-            height: 20px; /* Increase radio button size */
+            margin-top: 0;
+            margin-right: 10px;
+            /* Space between radio button and label, increased from 8px */
+            width: 20px;
+            /* Increase radio button size */
+            height: 20px;
+            /* Increase radio button size */
         }
 
         .radio-group label {
-            font-size: 18px; /* Increase font size for labels */
-            font-weight: normal; /* Reset font-weight if needed, or keep bold */
-            color: #1f2937; /* Match existing text color */
+            font-size: 18px;
+            /* Increase font size for labels */
+            font-weight: normal;
+            /* Reset font-weight if needed, or keep bold */
+            color: #1f2937;
+            /* Match existing text color */
         }
-
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="card">
@@ -184,7 +273,9 @@
                         </div>
                     </div>
                     <div class="button-container">
-                        <button type="button" class="button prev-page">返回</button>
+                        <a type="button" href="/" class="button">
+                            返回
+                        </a>
                         <button type="button" class="button next-page">繼續</button>
                     </div>
                 </div>
@@ -352,7 +443,7 @@
                     <div class="button-container">
                         <button type="button" class="button prev-page">返回</button>
                         <!-- <button type="button" class="button next-page">繼續</button> -->
-                         <button type="submit" class="button">查看推薦店家</button>
+                        <button type="submit" class="button">查看推薦店家</button>
                     </div>
                 </div>
             </form>
@@ -417,7 +508,7 @@
 
         // Add event listener for form submission
         const form = document.querySelector('form');
-        form.addEventListener('submit', async function(event) { // Use async function for fetch
+        form.addEventListener('submit', async function (event) { // Use async function for fetch
             event.preventDefault(); // Prevent the default form submission
 
             const formData = new FormData(form); // Get form data
@@ -476,4 +567,5 @@
         showPage(currentPage);
     </script>
 </body>
+
 </html>

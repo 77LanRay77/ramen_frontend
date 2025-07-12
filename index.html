@@ -1,75 +1,121 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>新竹拉麵指南</title>
     <style>
         body {
-            font-family: sans-serif; /* 使用無襯線字體 */
-            background: linear-gradient(to bottom right, #fff7ed, #fee2e2); /* 模擬 bg-gradient-to-br from-orange-50 to-red-50 */
-            color: #1f2937; /* 模擬 text-gray-900 */
+            height: 100dvh;
+            font-family: sans-serif;
+            /* 使用無襯線字體 */
+            background: linear-gradient(to bottom right, #fff7ed, #fee2e2);
+            /* 模擬 bg-gradient-to-br from-orange-50 to-red-50 */
+            color: #1f2937;
+            /* 模擬 text-gray-900 */
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
+
         .container {
-            max-width: 960px; /* 模擬 max-w-4xl */
-            margin: 0 auto; /* 模擬 mx-auto */
-            padding: 32px 16px; /* 模擬 px-4 py-8 */
+            max-width: 960px;
+            /* 模擬 max-w-4xl */
+            margin: 0 auto;
+            /* 模擬 mx-auto */
+            padding: 32px 16px;
+            /* 模擬 px-4 py-8 */
         }
+
         header {
-            text-align: center; /* 模擬 text-center */
-            margin-bottom: 48px; /* 模擬 mb-12 */
+            text-align: center;
+            /* 模擬 text-center */
+            margin-bottom: 48px;
+            /* 模擬 mb-12 */
         }
+
         header h1 {
-            font-size: 36px; /* 模擬 text-4xl */
-            font-weight: bold; /* 模擬 font-bold */
-            margin-bottom: 16px; /* 模擬 mb-4 */
-            color: #1f2937; /* 模擬 text-gray-900 */
+            font-size: 36px;
+            /* 模擬 text-4xl */
+            font-weight: bold;
+            /* 模擬 font-bold */
+            margin-bottom: 16px;
+            /* 模擬 mb-4 */
+            color: #1f2937;
+            /* 模擬 text-gray-900 */
         }
+
         header p {
-            font-size: 20px; /* 模擬 text-xl */
-            color: #4b5563; /* 模擬 text-gray-600 */
-            max-width: 672px; /* 模擬 max-w-2xl */
+            font-size: 20px;
+            /* 模擬 text-xl */
+            color: #4b5563;
+            /* 模擬 text-gray-600 */
+            max-width: 672px;
+            /* 模擬 max-w-2xl */
             margin: 0 auto;
         }
+
         .card {
-            background-color: rgba(255, 255, 255, 0.9); /* 模擬 bg-white/90 */
-            backdrop-filter: blur(8px); /* 模擬 backdrop-blur */
-            border-radius: 8px; /* 模擬 rounded */
-            padding: 24px; /* 模擬 p-6 */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 模擬 shadow */
-            max-width: 448px; /* 模擬 max-w-md */
-            margin: 0 auto; /* 模擬 mx-auto */
-            text-align: center; /* 模擬 text-center */
+            background-color: rgba(255, 255, 255, 0.9);
+            /* 模擬 bg-white/90 */
+            backdrop-filter: blur(8px);
+            /* 模擬 backdrop-blur */
+            border-radius: 8px;
+            /* 模擬 rounded */
+            padding: 24px;
+            /* 模擬 p-6 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* 模擬 shadow */
+            max-width: 448px;
+            /* 模擬 max-w-md */
+            margin: 0 auto;
+            /* 模擬 mx-auto */
+            text-align: center;
+            /* 模擬 text-center */
         }
+
         .card h2 {
-             font-size: 24px; /* 模擬 text-2xl */
-             font-weight: bold; /* 模擬 font-bold */
-             margin-top: 0;
-             margin-bottom: 8px; /* 模擬 mb-2 */
-             color: #1f2937; /* 模擬 text-gray-900 */
+            font-size: 24px;
+            /* 模擬 text-2xl */
+            font-weight: bold;
+            /* 模擬 font-bold */
+            margin-top: 0;
+            margin-bottom: 8px;
+            /* 模擬 mb-2 */
+            color: #1f2937;
+            /* 模擬 text-gray-900 */
         }
+
         .card p {
-            color: #4b5563; /* 模擬 text-gray-600 */
-            margin-bottom: 16px; /* 模擬 mb-4 */
+            color: #4b5563;
+            /* 模擬 text-gray-600 */
+            margin-bottom: 16px;
+            /* 模擬 mb-4 */
         }
+
         .button {
             display: inline-block;
-            padding: 12px 24px; /* 模擬 Button padding */
-            background-color: #f97316; /* 模擬 bg-orange-600 */
+            padding: 12px 24px;
+            /* 模擬 Button padding */
+            background-color: #f97316;
+            /* 模擬 bg-orange-600 */
             color: white;
             text-decoration: none;
-            border-radius: 6px; /* 模擬 rounded */
-            font-weight: 600; /* 模擬 font-semibold */
+            border-radius: 6px;
+            /* 模擬 rounded */
+            font-weight: 600;
+            /* 模擬 font-semibold */
             transition: background-color 0.2s ease-in-out;
         }
+
         .button:hover {
-            background-color: #ea580c; /* 模擬 hover:bg-orange-700 */
+            background-color: #ea580c;
+            /* 模擬 hover:bg-orange-700 */
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -83,4 +129,5 @@
         </div>
     </div>
 </body>
+
 </html>
