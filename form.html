@@ -381,7 +381,7 @@
                 <!-- Page 7: 澀 -->
                 <div class="form-page">
                     <div class="form-group">
-                        <label>對澀的喜愛度:</label>
+                        <label>對澀味的喜愛度:</label>
                         <div class="radio-group">
                             <div>
                                 <input type="radio" id="astringent-1" name="astringent" value="1">
@@ -645,19 +645,48 @@
 
         // Add event listener for form submission
         const form = document.querySelector('form');
-        form.addEventListener('submit', function(event) {
-            // event.preventDefault(); // Prevent the default form submission
+        form.addEventListener('submit', async function(event) { // Use async function for fetch
+            event.preventDefault(); // Prevent the default form submission
 
             const formData = new FormData(form); // Get form data
 
-            console.log('Form Data:');
-            // Iterate over form data and print to console
-            for (const [key, value] of formData.entries()) {
-                console.log(`${key}: ${value}`);
-            }
+            // Convert FormData to a plain object
+            const formDataObject = {};
+            formData.forEach((value, key) => {
+                formDataObject[key] = value;
+            });
 
-            // If you still want to submit the form after logging, you can call:
-            // form.submit(); // Let the default form submission happen
+            console.log('Form Data:', formDataObject); // Log the object
+
+            // Define your backend API endpoint
+            const apiEndpoint = 'http://127.0.0.1:8000/docs#/default/analyze_ramen_analyze_post'; // <<-- 請將此替換為您的後端 API 端點
+
+            try {
+                const response = await fetch(apiEndpoint, {
+                    method: 'POST', // Or 'GET', 'PUT', etc. depending on your API
+                    headers: {
+                        'Content-Type': 'application/json' // Specify content type as JSON
+                    },
+                    body: JSON.stringify(formDataObject) // Send data as JSON string
+                });
+
+                if (!response.ok) {
+                    // Handle HTTP errors
+                    const errorText = await response.text();
+                    throw new Error(`HTTP error! status: ${response.status}, body: ${errorText}`);
+                }
+
+                const result = await response.json(); // Parse the JSON response
+                console.log('API Response:', result);
+
+                // Redirect to the end page on successful submission
+                window.location.href = form.action; // Redirect to end_page.html
+
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                // Optionally display an error message to the user
+                alert('提交表單時發生錯誤，請稍後再試。');
+            }
         });
 
         // Show the first page on load and update button state
