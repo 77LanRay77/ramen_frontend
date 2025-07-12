@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>推薦拉麵店家</title>
+    <style>
+        body {
+            font-family: sans-serif; /* 使用無襯線字體 */
+            background: linear-gradient(to bottom right, #fff7ed, #fee2e2); /* 模擬 bg-gradient-to-br from-orange-50 to-red-50 */
+            color: #1f2937; /* 模擬 text-gray-900 */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 960px; /* 模擬 max-w-4xl */
+            margin: 0 auto; /* 模擬 mx-auto */
+            padding: 32px 16px; /* 模擬 px-4 py-8 */
+        }
+        header {
+            text-align: center; /* 模擬 text-center */
+            margin-bottom: 48px; /* 模擬 mb-12 */
+        }
+        header h1 {
+            font-size: 36px; /* 模擬 text-4xl */
+            font-weight: bold; /* 模擬 font-bold */
+            margin-bottom: 16px; /* 模擬 mb-4 */
+            color: #1f2937; /* 模擬 text-gray-900 */
+        }
+        header p {
+            font-size: 20px; /* 模擬 text-xl */
+            color: #4b5563; /* 模擬 text-gray-600 */
+            max-width: 672px; /* 模擬 max-w-2xl */
+            margin: 0 auto;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid; /* 使用 Grid 佈局 */
+            gap: 24px; /* 模擬 gap-6 */
+        }
+        li {
+            background-color: rgba(255, 255, 255, 0.9); /* 模擬 bg-white/90 */
+            backdrop-filter: blur(8px); /* 模擬 backdrop-blur */
+            border-radius: 8px; /* 模擬 rounded */
+            padding: 24px; /* 模擬 p-6 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 模擬 shadow */
+        }
+        li h2 {
+            font-size: 20px; /* 模擬 text-xl */
+            font-weight: bold; /* 模擬 font-bold */
+            margin-top: 0;
+            margin-bottom: 8px; /* 模擬 mb-2 */
+            color: #1f2937; /* 模擬 text-gray-900 */
+        }
+        li p {
+            color: #4b5563; /* 模擬 text-gray-600 */
+            margin-bottom: 4px; /* 調整段落間距 */
+            font-size: 14px; /* 模擬 text-sm */
+        }
+        li p:last-child {
+            margin-bottom: 0;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 32px; /* 模擬 mt-8 */
+        }
+        .back-link a {
+            display: inline-block;
+            padding: 12px 24px; /* 模擬 Button padding */
+            background-color: #f97316; /* 模擬 bg-orange-600 */
+            color: white;
+            text-decoration: none;
+            border-radius: 6px; /* 模擬 rounded */
+            font-weight: 600; /* 模擬 font-semibold */
+            transition: background-color 0.2s ease-in-out;
+        }
+        .back-link a:hover {
+            background-color: #ea580c; /* 模擬 hover:bg-orange-700 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>推薦拉麵店家</h1>
+            <p>根據您的口味偏好，以下是我們推薦的拉麵店家：</p>
+        </header>
+        <ul>
+            <li>
+                <h2>店家名稱 A</h2>
+                <p>地區: 台北市</p>
+                <p>主打拉麵種類: 豚骨拉麵</p>
+            </li>
+            <li>
+                <h2>店家名稱 B</h2>
+                <p>地區: 新北市</p>
+                <p>主打拉麵種類: 醬油拉麵</p>
+            </li>
+            <li>
+                <h2>店家名稱 C</h2>
+                <p>地區: 台中市</p>
+                <p>主打拉麵種類: 味噌拉麵</p>
+            </li>
+            <li>
+                <h2>店家名稱 D</h2>
+                <p>地區: 台南市</p>
+                <p>主打拉麵種類: 鹽味拉麵</p>
+            </li>
+            <li>
+                <h2>店家名稱 E</h2>
+                <p>地區: 高雄市</p>
+                <p>主打拉麵種類: 雞白湯拉麵</p>
+            </li>
+        </ul>
+        <p class="back-link"><a href="index.html">回到首頁</a></p>
+    </div>
+</body>
+</html>
