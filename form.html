@@ -99,6 +99,25 @@
             width: auto; /* Allow buttons to size based on content */
             display: inline-block; /* Display buttons inline */
         }
+        /* New styles for allergen form group */
+        .allergen-form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center items horizontally */
+            margin-bottom: 16px; /* Keep existing margin */
+        }
+
+        .allergen-form-group label {
+            margin-bottom: 8px; /* Keep existing margin */
+            font-size: 20px; /* Increase font size */
+        }
+
+        .allergen-form-group select {
+            padding: 10px; /* Increase padding */
+            font-size: 18px; /* Increase font size */
+            width: 80%; /* Set a specific width */
+            box-sizing: border-box; /* Include padding in the element's total width */
+        }
     </style>
 </head>
 <body>
@@ -106,6 +125,30 @@
         <div class="card">
             <h1>請設定您的拉麵口味偏好</h1>
             <form action="end_page.html" method="get">
+                <!-- Page 0: 過敏原 -->
+                <div class="form-page">
+                    <div class="form-group allergen-form-group"> <!-- Added allergen-form-group class -->
+                        <label for="allergen">過敏原:</label>
+                        <select id="allergen" name="allergen">
+                            <option value="">請選擇</option>
+                            <option value="wheat">小麥(麵粉)</option>
+                            <option value="egg">蛋</option>
+                            <option value="soy">大豆</option>
+                            <option value="fish">魚類</option>
+                            <option value="crustacean">甲殼類</option>
+                            <option value="milk">牛奶</option>
+                            <option value="sesame">芝麻</option>
+                            <option value="peanut">花生</option>
+                            <option value="meat">豬/牛/雞肉</option>
+                            <option value="alcohol">酒精</option>
+                        </select>
+                    </div>
+                    <div class="button-container">
+                        <span></span> <!-- Placeholder to align "繼續" button to the right -->
+                        <button type="button" class="button next-page">繼續</button>
+                    </div>
+                </div>
+
                 <!-- Page 1: 酸 -->
                 <div class="form-page">
                     <div class="form-group">
@@ -114,7 +157,7 @@
                         <span id="sour-value">5</span>
                     </div>
                     <div class="button-container">
-                        <span></span>
+                        <button type="button" class="button prev-page">返回</button>
                         <button type="button" class="button next-page">繼續</button>
                     </div>
                 </div>
@@ -218,7 +261,7 @@
         const prevButtons = document.querySelectorAll('.prev-page');
         const sliders = document.querySelectorAll('input[type="range"]');
 
-        let currentPage = 0;
+        let currentPage = 0; // Start at page 0 for the new allergen page
 
         function showPage(pageIndex) {
             formPages.forEach((page, index) => {
