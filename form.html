@@ -659,15 +659,23 @@
             console.log('Form Data:', formDataObject); // Log the object
 
             // Define your backend API endpoint
-            const apiEndpoint = 'http://127.0.0.1:8000/docs#/default/analyze_ramen_analyze_post'; // <<-- 請將此替換為您的後端 API 端點
+            const apiEndpoint = 'https://ramen-backend-138092490095.asia-east1.run.app/form'; // <<-- 更新為新的後端 API 端點
+
+            // Filter and map form data to match the Ramen schema for the /form endpoint
+            const apiData = new URLSearchParams();
+            if (formDataObject.hasOwnProperty('sour')) apiData.append('sourness', formDataObject['sour']);
+            if (formDataObject.hasOwnProperty('sweet')) apiData.append('sweetness', formDataObject['sweet']);
+            if (formDataObject.hasOwnProperty('salty')) apiData.append('saltiness', formDataObject['salty']);
+            if (formDataObject.hasOwnProperty('spicy')) apiData.append('spiciness', formDataObject['spicy']);
+            if (formDataObject.hasOwnProperty('umami')) apiData.append('umami', formDataObject['umami']);
 
             try {
                 const response = await fetch(apiEndpoint, {
-                    method: 'POST', // Or 'GET', 'PUT', etc. depending on your API
+                    method: 'POST', // Method is POST as per API spec
                     headers: {
-                        'Content-Type': 'application/json' // Specify content type as JSON
+                        'Content-Type': 'application/x-www-form-urlencoded' // Specify content type as URL-encoded
                     },
-                    body: JSON.stringify(formDataObject) // Send data as JSON string
+                    body: apiData // Send data as URL-encoded string
                 });
 
                 if (!response.ok) {
@@ -678,6 +686,9 @@
 
                 const result = await response.json(); // Parse the JSON response
                 console.log('API Response:', result);
+                
+                // Store the result in sessionStorage before redirecting
+                sessionStorage.setItem('ramenRecommendations', JSON.stringify(result));
 
                 // Redirect to the end page on successful submission
                 window.location.href = form.action; // Redirect to end_page.html
