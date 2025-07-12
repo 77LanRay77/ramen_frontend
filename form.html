@@ -81,6 +81,10 @@
         .button:hover {
             background-color: #ea580c; /* 模擬 hover:bg-orange-700 */
         }
+        .button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
         .form-page {
             display: none; /* Hide all pages by default */
             display: flex; /* Use flexbox for page content */
@@ -586,14 +590,38 @@
         const formPages = document.querySelectorAll('.form-page');
         const nextButtons = document.querySelectorAll('.next-page');
         const prevButtons = document.querySelectorAll('.prev-page');
-        // Remove sliders as they are replaced by radio buttons
 
-        let currentPage = 0; // Start at page 0 for the new allergen page
+        let currentPage = 0;
 
         function showPage(pageIndex) {
             formPages.forEach((page, index) => {
-                page.style.display = index === pageIndex ? 'flex' : 'none'; // Use flex for pages
+                page.style.display = index === pageIndex ? 'flex' : 'none';
             });
+            updateButtonState(); // Call the function to update button state
+        }
+
+        function updateButtonState() {
+            const currentPageElement = formPages[currentPage];
+            const nextButton = currentPageElement.querySelector('.next-page');
+            const submitButton = currentPageElement.querySelector('button[type="submit"]');
+            let isAnswered = false;
+
+            // Check for select input (Allergen and Ramen Style pages)
+            const selectElement = currentPageElement.querySelector('select');
+            if (selectElement) {
+                isAnswered = selectElement.value !== '';
+            } else { // Check for radio button input (all other pages)
+                const radioButtons = currentPageElement.querySelectorAll('input[type="radio"]');
+                isAnswered = Array.from(radioButtons).some(radio => radio.checked);
+            }
+
+            // Enable or disable the next/submit button based on whether the question is answered
+            if (nextButton) {
+                nextButton.disabled = !isAnswered;
+            }
+            if (submitButton) {
+                submitButton.disabled = !isAnswered;
+            }
         }
 
         nextButtons.forEach(button => {
@@ -610,7 +638,29 @@
             });
         });
 
-        // Show the first page on load
+        // Add event listeners to update button state when an answer is selected
+        formPages.forEach(page => {
+            page.addEventListener('change', updateButtonState);
+        });
+
+        // Add event listener for form submission
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            // event.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(form); // Get form data
+
+            console.log('Form Data:');
+            // Iterate over form data and print to console
+            for (const [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
+
+            // If you still want to submit the form after logging, you can call:
+            // form.submit(); // Let the default form submission happen
+        });
+
+        // Show the first page on load and update button state
         showPage(currentPage);
     </script>
 </body>
