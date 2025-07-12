@@ -156,30 +156,6 @@
         <div class="card">
             <h1>請設定您的拉麵口味偏好</h1>
             <form action="end_page.html" method="get">
-                <!-- Page 0: 過敏原 -->
-                <div class="form-page">
-                    <div class="form-group allergen-form-group"> <!-- Added allergen-form-group class -->
-                        <label for="allergen">過敏原:</label>
-                        <select id="allergen" name="allergen">
-                            <option value="">請選擇</option>
-                            <option value="wheat">小麥(麵粉)</option>
-                            <option value="egg">蛋</option>
-                            <option value="soy">大豆</option>
-                            <option value="fish">魚類</option>
-                            <option value="crustacean">甲殼類</option>
-                            <option value="milk">牛奶</option>
-                            <option value="sesame">芝麻</option>
-                            <option value="peanut">花生</option>
-                            <option value="meat">豬/牛/雞肉</option>
-                            <option value="alcohol">酒精</option>
-                        </select>
-                    </div>
-                    <div class="button-container">
-                        <span></span> <!-- Placeholder to align "繼續" button to the right -->
-                        <button type="button" class="button next-page">繼續</button>
-                    </div>
-                </div>
-
                 <!-- Page 1: 酸 -->
                 <div class="form-page">
                     <div class="form-group">
@@ -345,71 +321,6 @@
                     </div>
                 </div>
 
-                <!-- Page 6: 油脂 -->
-                <div class="form-page">
-                    <div class="form-group">
-                        <label>對油脂感的喜愛度:</label>
-                        <div class="radio-group">
-                            <div>
-                                <input type="radio" id="oily-1" name="oily" value="1">
-                                <label for="oily-1">1</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="oily-2" name="oily" value="2">
-                                <label for="oily-2">2</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="oily-3" name="oily" value="3">
-                                <label for="oily-3">3</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="oily-4" name="oily" value="4">
-                                <label for="oily-4">4</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="oily-5" name="oily" value="5">
-                                <label for="oily-5">5</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-container">
-                        <button type="button" class="button prev-page">返回</button>
-                        <button type="button" class="button next-page">繼續</button>
-                    </div>
-                </div>
-
-                <!-- Page 7: 澀 -->
-                <div class="form-page">
-                    <div class="form-group">
-                        <label>對澀味的喜愛度:</label>
-                        <div class="radio-group">
-                            <div>
-                                <input type="radio" id="astringent-1" name="astringent" value="1">
-                                <label for="astringent-1">1</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="astringent-2" name="astringent" value="2">
-                                <label for="astringent-2">2</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="astringent-3" name="astringent" value="3">
-                                <label for="astringent-3">3</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="astringent-4" name="astringent" value="4">
-                                <label for="astringent-4">4</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="astringent-5" name="astringent" value="5">
-                                <label for="astringent-5">5</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-container">
-                        <button type="button" class="button prev-page">返回</button>
-                        <button type="button" class="button next-page">繼續</button>
-                    </div>
-                </div>
 
                 <!-- Page 8: 辣 -->
                 <div class="form-page">
@@ -440,147 +351,8 @@
                     </div>
                     <div class="button-container">
                         <button type="button" class="button prev-page">返回</button>
-                        <button type="button" class="button next-page">繼續</button>
-                    </div>
-                </div>
-
-                <!-- Page 9 (new): 拉麵軟硬度 -->
-                <div class="form-page">
-                    <div class="form-group">
-                        <label>請選擇拉麵軟硬度:</label>
-                        <div class="radio-group">
-                            <div>
-                                <input type="radio" id="noodle-firmness-1" name="noodle-firmness" value="1">
-                                <label for="noodle-firmness-1">1 (非常軟)</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="noodle-firmness-2" name="noodle-firmness" value="2">
-                                <label for="noodle-firmness-2">2</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="noodle-firmness-3" name="noodle-firmness" value="3">
-                                <label for="noodle-firmness-3">3</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="noodle-firmness-4" name="noodle-firmness" value="4">
-                                <label for="noodle-firmness-4">4</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="noodle-firmness-5" name="noodle-firmness" value="5">
-                                <label for="noodle-firmness-5">5 (非常硬)</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-container">
-                        <button type="button" class="button prev-page">返回</button>
-                        <button type="button" class="button next-page">繼續</button>
-                    </div>
-                </div>
-
-                <!-- Page 10 (new): 拉麵粗細度 -->
-                <div class="form-page">
-                    <div class="form-group"> <!-- Removed allergen-form-group class -->
-                        <label>請選擇拉麵粗細度:</label>
-                        <div class="radio-group">
-                            <div>
-                                <input type="radio" id="noodle-thickness-thin" name="noodle-thickness" value="thin">
-                                <label for="noodle-thickness-thin">細</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="noodle-thickness-thick" name="noodle-thickness" value="thick">
-                                <label for="noodle-thickness-thick">粗</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-container">
-                        <button type="button" class="button prev-page">返回</button>
-                        <button type="button" class="button next-page">繼續</button>
-                    </div>
-                </div>
-
-                <!-- Page 11 (new): 湯頭濃度 -->
-                <div class="form-page">
-                    <div class="form-group">
-                        <label>請選擇湯頭濃度:</label>
-                        <div class="radio-group">
-                            <div>
-                                <input type="radio" id="soup-richness-1" name="soup-richness" value="1">
-                                <label for="soup-richness-1">1 (淡)</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="soup-richness-2" name="soup-richness" value="2">
-                                <label for="soup-richness-2">2</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="soup-richness-3" name="soup-richness" value="3">
-                                <label for="soup-richness-3">3</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="soup-richness-4" name="soup-richness" value="4">
-                                <label for="soup-richness-4">4</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="soup-richness-5" name="soup-richness" value="5">
-                                <label for="soup-richness-5">5 (濃)</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-container">
-                        <button type="button" class="button prev-page">返回</button>
-                        <button type="button" class="button next-page">繼續</button>
-                    </div>
-                </div>
-
-                <!-- Page 12 (was Page 11): 拉麵派系 -->
-                <div class="form-page">
-                    <div class="form-group allergen-form-group"> <!-- Added allergen-form-group class -->
-                        <label for="ramen-style">請選擇拉麵派系:</label>
-                        <select id="ramen-style" name="ramen-style">
-                            <option value="">請選擇</option>
-                            <option value="tonkotsu">豚骨系</option>
-                            <option value="shoyu">醬油系</option>
-                            <option value="shio">鹽味系</option>
-                            <option value="miso">味噌系</option>
-                            <option value="gyokai">魚介系</option>
-                            <option value="mixed">混合系</option>
-                        </select>
-                    </div>
-                    <div class="button-container">
-                        <button type="button" class="button prev-page">返回</button>
-                        <button type="button" class="button next-page">繼續</button> <!-- Change submit to next-page -->
-                    </div>
-                </div>
-
-                <!-- Page 13 (new): 金額範圍 -->
-                <div class="form-page">
-                    <div class="form-group">
-                        <label>金額範圍:</label>
-                        <div class="radio-group">
-                            <div>
-                                <input type="radio" id="price-range-1" name="price-range" value="150-200">
-                                <label for="price-range-1">$150~200</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="price-range-2" name="price-range" value="200-250">
-                                <label for="price-range-2">$200~250</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="price-range-3" name="price-range" value="250-300">
-                                <label for="price-range-3">$250~300</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="price-range-4" name="price-range" value="300-350">
-                                <label for="price-range-4">$300~350</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="price-range-5" name="price-range" value="350-400">
-                                <label for="price-range-5">$350~400</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-container">
-                        <button type="button" class="button prev-page">返回</button>
-                        <button type="submit" class="button">查看推薦店家</button> <!-- Change next-page to submit -->
+                        <!-- <button type="button" class="button next-page">繼續</button> -->
+                         <button type="submit" class="button">查看推薦店家</button>
                     </div>
                 </div>
             </form>
@@ -686,7 +458,7 @@
 
                 const result = await response.json(); // Parse the JSON response
                 console.log('API Response:', result);
-                
+
                 // Store the result in sessionStorage before redirecting
                 sessionStorage.setItem('ramenRecommendations', JSON.stringify(result));
 
