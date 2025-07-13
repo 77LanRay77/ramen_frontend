@@ -7,99 +7,311 @@
     <title>推薦店家</title>
     <style>
         body {
-            height: 100dvh;
-            font-family: sans-serif;
+            /* Mimic bg-gradient-to-br from-orange-50 to-red-50 */
             background: linear-gradient(to bottom right, #fff7ed, #fee2e2);
-            color: #1f2937;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            font-family: sans-serif;
+            /* Use a common sans-serif font */
+            color: #1a202c;
+            /* Default text color */
         }
 
         .container {
-            max-width: 960px;
-            margin: 300px;
-            padding: 40px 20px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 56rem;
+            /* Mimic max-w-4xl */
+            padding-left: 1rem;
+            /* Mimic px-4 */
+            padding-right: 1rem;
+            /* Mimic px-4 */
         }
 
         .card {
+            /* Mimic bg-white/90 backdrop-blur and card styling */
             background-color: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(8px);
-            border-radius: 8px;
-            padding: 24px;
+            border-radius: 0.5rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 1200dvw;
-            margin: 0 auto;
+            padding: 2rem;
+            /* Mimic p-8 */
+        }
+
+        .card-header {
+            padding-bottom: 1rem;
+            /* Add some padding below header */
+        }
+
+        .card-content {
+            padding-top: 0rem;
+
+            /* Mimic p-6 for content area */
         }
 
         h1 {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 24px;
-            color: #1f2937;
+            font-size: 1.875rem;
+            /* Mimic text-3xl */
+            line-height: 2.25rem;
+            font-weight: 700;
+            /* Mimic font-bold */
+            color: #1a202c;
+            /* Mimic text-gray-900 */
+            margin-bottom: 0.5rem;
+            /* Mimic mb-2 */
         }
 
-        #recommendations-list {
-            text-align: left;
-            margin-top: 20px;
+        h3 {
+            font-size: 1.125rem;
+            /* Mimic text-lg */
+            line-height: 1.75rem;
+            font-weight: 600;
+            /* Mimic font-semibold */
+            margin-bottom: 0.5rem;
+            /* Mimic mb-2 */
         }
 
-        #recommendations-list div {
+        p {
+            color: #4a5568;
+            /* Mimic text-gray-600 */
+            margin-bottom: 1rem;
+            /* Mimic mb-4 */
+        }
+
+        .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+            margin-top: 1.5rem;
+            /* Mimic space-y-6 */
+        }
+
+        .flex {
             display: flex;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-between {
             justify-content: space-between;
-            background-color: #fef3c7;
-            /* Light orange background */
-            border: 1px solid #fbbf24;
-            /* Orange border */
-            border-radius: 4px;
-            padding: 12px;
-            margin-bottom: 12px;
-            font-size: 18px;
-            color: #78350f;
-            /* Dark orange text */
         }
 
-        #recommendations-list div strong {
-            color: #c2410c;
-            /* Even darker orange for emphasis */
+        .gap-2 {
+            gap: 0.5rem;
         }
 
-        /* 新增的 CSS */
-        #back-to-home {
-            display: block;
-            margin: 20px auto 0 auto;
-            /* 上方間距 20px，左右自動，下方間距 0 */
-            padding: 10px 20px;
-            font-size: 16px;
+        .gap-4 {
+            gap: 1rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+            /* Mimic text-xl */
+            line-height: 1.75rem;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+            /* Mimic text-sm */
+            line-height: 1.25rem;
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+            /* Mimic text-2xl */
+            line-height: 2rem;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .text-gray-900 {
+            color: #1a202c;
+        }
+
+        .text-gray-600 {
+            color: #4a5568;
+        }
+
+        .text-orange-600 {
+            color: #dd6b20;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 9999px;
+            /* Mimic rounded-full */
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .badge-primary {
+            background-color: #dd6b20;
+            /* Mimic bg-orange-600 */
             color: #fff;
-            background-color: #f97316;
-            /* Orange 500 */
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
         }
 
-        #back-to-home:hover {
-            background-color: #ea580c;
-            /* Orange 600 */
+        .badge-secondary {
+            background-color: #edf2f7;
+            /* Mimic badge-secondary */
+            color: #2d3748;
+        }
+
+        .badge-outline {
+            border: 1px solid #e2e8f0;
+            /* Mimic badge-outline */
+            color: #2d3748;
+            background-color: transparent;
+        }
+
+        button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.375rem;
+            /* Mimic rounded-md */
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            border: none;
+            /* Remove default button border */
+        }
+
+        .button-outline {
+            border: 1px solid #e2e8f0;
+            /* Mimic button-outline */
+            background-color: transparent;
+            color: #2d3748;
+        }
+
+        .button-outline:hover {
+            background-color: #f7fafc;
+            /* Light hover effect */
+        }
+
+        .button-primary {
+            background-color: #dd6b20;
+            /* Mimic bg-orange-600 */
+            color: #fff;
+        }
+
+        .button-primary:hover {
+            background-color: #c05621;
+            /* Mimic hover:bg-orange-700 */
+        }
+
+        .mt-8 {
+            margin-top: 2rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Basic icon styling - you might want to use an icon library */
+        .icon {
+            display: inline-block;
+            width: 1rem;
+            /* Mimic h-4 */
+            height: 1rem;
+            /* Mimic w-4 */
+            margin-right: 0.5rem;
+            /* Mimic mr-2 */
+            vertical-align: middle;
+        }
+
+        .icon-star {
+            color: #f6e05e;
+            /* Mimic text-yellow-500 */
+            fill: currentColor;
+            /* Mimic fill-current */
+        }
+
+        /* Loading spinner styles */
+        .loading-spinner {
+            animation: spin 1s linear infinite;
+            border: 2px solid transparent;
+            border-bottom-color: #dd6b20;
+            /* Mimic border-orange-600 */
+            border-radius: 50%;
+            /* Mimic rounded-full */
+            width: 3rem;
+            /* Mimic w-12 */
+            height: 3rem;
+            /* Mimic h-12 */
+            margin-left: auto;
+            /* Mimic mx-auto */
+            margin-right: auto;
+            /* Mimic mx-auto */
+            margin-bottom: 1rem;
+            /* Mimic mb-4 */
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="card">
-            <h1>推薦給您的拉麵店家</h1>
-            <div id="recommendations-list">
-                <!-- Recommendations will be loaded here by JavaScript -->
+        <!-- Back to Home Button -->
+        <div class="mb-8">
+            <button id="back-to-home" class="button-primary mb-4">
+                <!-- Icon placeholder -->
+                <span class="icon">←</span>
+                返回首頁
+            </button>
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">推薦給您的拉麵店家</h1>
+            <p class="text-gray-600">根據您的口味偏好，以下是新竹的最佳推薦：</p>
+        </div>
+
+        <div id="recommendations-list" class="space-y-6">
+            <!-- Recommendations will be loaded here by JavaScript -->
+        </div>
+
+        <!-- Want to try again? section -->
+        <div class="mt-8 text-center">
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="text-lg font-semibold mb-2">想再試一次嗎？</h3>
+                    <p class="text-gray-600 mb-4">重新填寫問卷以發現更多推薦</p>
+                    <button id="retake-survey" class="button-primary">重新填寫問卷</button>
+                </div>
             </div>
-            <!-- 新增返回首頁按鈕 -->
-            <button id="back-to-home">返回首頁</button>
         </div>
     </div>
 
@@ -107,6 +319,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             const recommendationsData = sessionStorage.getItem('ramenRecommendations');
             const listContainer = document.getElementById('recommendations-list');
+            const backButton = document.getElementById('back-to-home');
+            const retakeButton = document.getElementById('retake-survey');
 
             if (recommendationsData) {
                 try {
@@ -114,15 +328,107 @@
                     const ramenShops = result.ramen_shops; // Access the array under 'ramen_shops'
 
                     if (ramenShops && ramenShops.length > 0) {
-                        ramenShops.forEach(shop => {
-                            const shopElement = document.createElement('div');
-                            const nameElement = document.createElement('span');
-                            nameElement.innerHTML = `<strong>${shop.shop}</strong>: ${shop.name}`;
-                            const scoreElement = document.createElement('span');
-                            scoreElement.textContent = shop.score.toFixed(2);
-                            shopElement.appendChild(nameElement);
-                            shopElement.appendChild(scoreElement);
-                            listContainer.appendChild(shopElement);
+                        ramenShops.forEach((shop, index) => {
+                            const shopCard = document.createElement('div');
+                            shopCard.classList.add('card');
+
+                            const cardHeader = document.createElement('div');
+                            cardHeader.classList.add('card-header', 'flex', 'items-start', 'justify-between');
+
+                            const shopInfo = document.createElement('div');
+
+                            const titleRow = document.createElement('div');
+                            titleRow.classList.add('flex', 'items-center', 'gap-2', 'mb-0');
+
+                            const shopName = document.createElement('div');
+                            shopName.classList.add('text-xl', 'font-bold');
+                            shopName.textContent = shop.shop; // Assuming 'shop' is the main name
+
+                            titleRow.appendChild(shopName);
+
+                            // Add 'Best Match' badge for the first item
+                            if (index === 0) {
+                                const bestMatchBadge = document.createElement('span');
+                                bestMatchBadge.classList.add('badge', 'badge-primary');
+                                bestMatchBadge.textContent = '最佳推薦';
+                                titleRow.appendChild(bestMatchBadge);
+                            }
+
+                            const cardDescription = document.createElement('div');
+                            cardDescription.classList.add('text-gray-600', 'text-sm', 'flex', 'items-center', 'gap-2');
+
+                            // Address (using a placeholder icon)
+                            const addressSpan = document.createElement('span');
+                            addressSpan.classList.add('flex', 'items-center', 'gap-1');
+                            addressSpan.innerHTML = '<span class="icon">📍</span>' + (shop.address || '地址未知'); // Assuming 'address' field exists
+                            cardDescription.appendChild(addressSpan);
+
+                            // Rating (using a placeholder icon) - Removed
+                            // const ratingSpan = document.createElement('span');
+                            // ratingSpan.classList.add('flex', 'items-center', 'gap-1');
+                            // ratingSpan.innerHTML = '<span class="icon icon-star">★</span>' + (shop.score ? shop.score.toFixed(1) : 'N/A'); // Assuming 'score' field exists
+                            // cardDescription.appendChild(ratingSpan);
+
+                            // Price (using a placeholder icon)
+                            const priceSpan = document.createElement('span');
+                            priceSpan.classList.add('flex', 'items-center', 'gap-1');
+                            priceSpan.innerHTML = '<span class="icon">💲</span>' + (shop.price || '價格未知'); // Assuming 'price' field exists
+                            cardDescription.appendChild(priceSpan);
+
+
+                            shopInfo.appendChild(titleRow);
+                            shopInfo.appendChild(cardDescription);
+
+                            const matchScoreDiv = document.createElement('div');
+                            matchScoreDiv.classList.add('text-right');
+                            const scoreDisplay = document.createElement('div'); // Renamed for clarity
+                            scoreDisplay.classList.add('text-2xl', 'font-bold', 'text-orange-600');
+                            // Display the shop score instead of matchScore
+                            scoreDisplay.textContent = shop.score ? shop.score.toFixed(1) : 'N/A'; // Use shop.score
+                            // Removed the matchLabel element
+
+                            matchScoreDiv.appendChild(scoreDisplay);
+                            // matchScoreDiv.appendChild(matchLabel); // Removed this line
+
+                            cardHeader.appendChild(shopInfo);
+                            cardHeader.appendChild(matchScoreDiv);
+
+                            const cardContent = document.createElement('div');
+                            cardContent.classList.add('card-content');
+
+                            const descriptionPara = document.createElement('p');
+                            descriptionPara.classList.add('text-gray-700', 'mb-4');
+                            descriptionPara.textContent = shop.name || '無描述'; // Assuming 'name' is the description field
+
+                            const badgesDiv = document.createElement('div');
+                            badgesDiv.classList.add('flex', 'flex-wrap', 'gap-2');
+
+                            // Add Type badge (assuming 'type' field exists)
+                            if (shop.type) {
+                                const typeBadge = document.createElement('span');
+                                typeBadge.classList.add('badge', 'badge-secondary');
+                                typeBadge.textContent = shop.type;
+                                badgesDiv.appendChild(typeBadge);
+                            }
+
+                            // Add Specialties badges (assuming 'specialties' is an array)
+                            if (shop.specialties && Array.isArray(shop.specialties)) {
+                                shop.specialties.forEach(specialty => {
+                                    const specialtyBadge = document.createElement('span');
+                                    specialtyBadge.classList.add('badge', 'badge-outline');
+                                    specialtyBadge.textContent = specialty;
+                                    badgesDiv.appendChild(specialtyBadge);
+                                });
+                            }
+
+
+                            cardContent.appendChild(descriptionPara);
+                            cardContent.appendChild(badgesDiv);
+
+                            shopCard.appendChild(cardHeader);
+                            shopCard.appendChild(cardContent);
+
+                            listContainer.appendChild(shopCard);
                         });
                     } else {
                         listContainer.innerHTML = '<p>找不到推薦的店家。</p>';
@@ -135,10 +441,13 @@
                 listContainer.innerHTML = '<p>沒有找到推薦資料。請回到表單頁面重新填寫。</p>';
             }
 
-            // 新增按鈕點擊事件處理
-            const backButton = document.getElementById('back-to-home');
+            // Add button click event handlers
             backButton.addEventListener('click', () => {
                 window.location.href = 'index.html';
+            });
+
+            retakeButton.addEventListener('click', () => {
+                 window.location.href = 'form.html'; // Assuming your form page is form.html
             });
         });
     </script>
