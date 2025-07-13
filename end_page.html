@@ -22,9 +22,8 @@
 
         .container {
             max-width: 960px;
-            margin: 0 auto;
-            padding: 32px 16px;
-            text-align: center;
+            margin: 300px;
+            padding: 40px 20px;
         }
 
         .card {
@@ -33,7 +32,7 @@
             border-radius: 8px;
             padding: 24px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            max-width: 1200dvw;
             margin: 0 auto;
         }
 
@@ -50,6 +49,8 @@
         }
 
         #recommendations-list div {
+            display: flex;
+            justify-content: space-between;
             background-color: #fef3c7;
             /* Light orange background */
             border: 1px solid #fbbf24;
@@ -66,6 +67,27 @@
             color: #c2410c;
             /* Even darker orange for emphasis */
         }
+
+        /* 新增的 CSS */
+        #back-to-home {
+            display: block;
+            margin: 20px auto 0 auto;
+            /* 上方間距 20px，左右自動，下方間距 0 */
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #f97316;
+            /* Orange 500 */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #back-to-home:hover {
+            background-color: #ea580c;
+            /* Orange 600 */
+        }
     </style>
 </head>
 
@@ -76,6 +98,8 @@
             <div id="recommendations-list">
                 <!-- Recommendations will be loaded here by JavaScript -->
             </div>
+            <!-- 新增返回首頁按鈕 -->
+            <button id="back-to-home">返回首頁</button>
         </div>
     </div>
 
@@ -92,7 +116,12 @@
                     if (ramenShops && ramenShops.length > 0) {
                         ramenShops.forEach(shop => {
                             const shopElement = document.createElement('div');
-                            shopElement.innerHTML = `<strong>${shop.shop}</strong>: ${shop.name} (分數: ${shop.score.toFixed(2)})`;
+                            const nameElement = document.createElement('span');
+                            nameElement.innerHTML = `<strong>${shop.shop}</strong>: ${shop.name}`;
+                            const scoreElement = document.createElement('span');
+                            scoreElement.textContent = shop.score.toFixed(2);
+                            shopElement.appendChild(nameElement);
+                            shopElement.appendChild(scoreElement);
                             listContainer.appendChild(shopElement);
                         });
                     } else {
@@ -105,6 +134,12 @@
             } else {
                 listContainer.innerHTML = '<p>沒有找到推薦資料。請回到表單頁面重新填寫。</p>';
             }
+
+            // 新增按鈕點擊事件處理
+            const backButton = document.getElementById('back-to-home');
+            backButton.addEventListener('click', () => {
+                window.location.href = 'index.html';
+            });
         });
     </script>
 </body>

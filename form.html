@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>口味偏好設定</title>
     <style>
+        .highlight {
+            font-size: 1.2em;
+            /* 調整大小 */
+            font-weight: bold;
+        }
+
         body {
             height: 100dvh;
             font-family: sans-serif;
@@ -230,7 +236,7 @@
         }
 
         .radio-group label {
-            font-size: 18px;
+            font-size: 20px;
             /* Increase font size for labels */
             font-weight: normal;
             /* Reset font-weight if needed, or keep bold */
@@ -248,7 +254,7 @@
                 <!-- Page 1: 酸 -->
                 <div class="form-page">
                     <div class="form-group">
-                        <label>對酸的喜愛度:</label>
+                        <label>對<span class="highlight">酸</span>的喜愛度:</label>
                         <div class="radio-group">
                             <div>
                                 <input type="radio" id="sour-1" name="sour" value="1">
@@ -283,7 +289,7 @@
                 <!-- Page 2: 甜 -->
                 <div class="form-page">
                     <div class="form-group">
-                        <label>對甜的喜愛度:</label>
+                        <label>對<span class="highlight">甜</span>的喜愛度:</label>
                         <div class="radio-group">
                             <div>
                                 <input type="radio" id="sweet-1" name="sweet" value="1">
@@ -316,7 +322,7 @@
                 <!-- Page 3: 鹹 -->
                 <div class="form-page">
                     <div class="form-group">
-                        <label>對鹹的喜愛度:</label>
+                        <label>對<span class="highlight">鹹</span>的喜愛度:</label>
                         <div class="radio-group">
                             <div>
                                 <input type="radio" id="salty-1" name="salty" value="1">
@@ -349,7 +355,7 @@
                 <!-- Page 4: 苦 -->
                 <div class="form-page">
                     <div class="form-group">
-                        <label>對苦的喜愛度:</label>
+                        <label>對<span class="highlight">苦</span>的喜愛度:</label>
                         <div class="radio-group">
                             <div>
                                 <input type="radio" id="bitter-1" name="bitter" value="1">
@@ -382,7 +388,7 @@
                 <!-- Page 5: 鮮 -->
                 <div class="form-page">
                     <div class="form-group">
-                        <label>對鮮味的喜愛度:</label>
+                        <label>對<span class="highlight">鮮味</span>的喜愛度:</label>
                         <div class="radio-group">
                             <div>
                                 <input type="radio" id="umami-1" name="umami" value="1">
@@ -416,7 +422,7 @@
                 <!-- Page 8: 辣 -->
                 <div class="form-page">
                     <div class="form-group">
-                        <label>對辣的喜愛度:</label>
+                        <label>對<span class="highlight">辣</span>的喜愛度:</label>
                         <div class="radio-group">
                             <div>
                                 <input type="radio" id="spicy-1" name="spicy" value="1">
